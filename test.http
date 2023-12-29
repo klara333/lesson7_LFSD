@@ -1,0 +1,20 @@
+@baseUrl = http://127.0.0.1:3000
+
+GET {{baseUrl}}/images
+
+#####
+POST {{baseUrl}}/upload
+ Content-Type: multipart/form-data; boundary=ImageBoundary
+
+--ImageBoundary
+Content-Disposition: form-data; name="image"; fileName="index.jpg"
+Content-Type: image/png
+
+ < ./index.jpg
+--ImageBoundary--
+#######
+
+GET {{baseUrl}}/download/1703873517128-index.jpg
+#######
+
+DELETE  {{baseUrl}}/delete/1703872305618-index.jpg
